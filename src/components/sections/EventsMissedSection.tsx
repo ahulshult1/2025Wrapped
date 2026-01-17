@@ -13,8 +13,8 @@ const EventsMissedSection = () => {
         backstory:
           'I was hiking Machu Picchu. Worth it? Yes. Do I feel bad? Also yes.',
         rotation: -8,
-        top: '6%',
-        left: '4%',
+        top: '4%',
+        left: '2%',
         z: 3,
       },
       {
@@ -25,8 +25,8 @@ const EventsMissedSection = () => {
         backstory:
           'A last-minute deadline ate my calendar. I sent a meme. It was not enough.',
         rotation: 6,
-        top: '10%',
-        left: '48%',
+        top: '8%',
+        left: '62%',
         z: 2,
       },
       {
@@ -37,8 +37,8 @@ const EventsMissedSection = () => {
         backstory:
           'I started a 2-hour board game tutorial and woke up six hours later.',
         rotation: -4,
-        top: '36%',
-        left: '12%',
+        top: '28%',
+        left: '18%',
         z: 4,
       },
       {
@@ -49,8 +49,8 @@ const EventsMissedSection = () => {
         backstory:
           'I committed to sourdough. It needed me. The friendship loaf won.',
         rotation: 9,
-        top: '42%',
-        left: '54%',
+        top: '36%',
+        left: '70%',
         z: 1,
       },
       {
@@ -61,8 +61,8 @@ const EventsMissedSection = () => {
         backstory:
           'I arrived a full day late with snacks and confidence. The stage was gone.',
         rotation: -12,
-        top: '62%',
-        left: '6%',
+        top: '58%',
+        left: '8%',
         z: 2,
       },
       {
@@ -73,8 +73,8 @@ const EventsMissedSection = () => {
         backstory:
           'Airport floor nap. woke up to a group photo I was not in.',
         rotation: 5,
-        top: '58%',
-        left: '44%',
+        top: '52%',
+        left: '42%',
         z: 3,
       },
       {
@@ -85,8 +85,8 @@ const EventsMissedSection = () => {
         backstory:
           'Five minutes became five episodes. I sent a plant as an apology.',
         rotation: -6,
-        top: '72%',
-        left: '62%',
+        top: '74%',
+        left: '68%',
         z: 2,
       },
     ],
@@ -137,9 +137,6 @@ const EventsMissedSection = () => {
               <p className="text-sm uppercase tracking-[0.2em] text-eventsGray/70">
                 7 invitations. 7 regrets. 100% guilt.
               </p>
-              <p className="text-sm italic text-eventsGray/60">
-                Sad trombone: wah-wah-waaaah.
-              </p>
             </div>
             <div className="flex flex-wrap items-center gap-4 text-sm">
               <span className="handwritten text-lg text-eventsGray/70">
@@ -152,7 +149,7 @@ const EventsMissedSection = () => {
             </div>
           </div>
 
-          <div className="relative mt-10 min-h-[38rem] md:min-h-[42rem]">
+          <div className="relative mt-10 min-h-[42rem] md:min-h-[48rem]">
             {tickets.map((ticket, index) => (
               <motion.div
                 key={ticket.id}
@@ -216,11 +213,10 @@ const EventsMissedSection = () => {
             ))}
           </div>
 
-          <div className="mt-12 flex flex-col items-start gap-2 text-sm text-eventsGray/70">
-            <span className="handwritten text-lg text-eventsGray/70">
-              🥀 Broken heart, full calendar.
+          <div className="mt-14 flex w-full flex-col items-center gap-2 text-eventsGray">
+            <span className="text-3xl font-bold tracking-wide">
+              Days since I last missed an event: 0
             </span>
-            <span>Days since I last missed an event: 0</span>
           </div>
         </div>
       </div>

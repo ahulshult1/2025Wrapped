@@ -11,6 +11,7 @@ const sections: Section[] = [
   { id: 'hero', label: 'Start', color: '#8B7355' },
   { id: 'travel', label: 'Travel', color: '#6B9AC4' },
   { id: 'accomplishments', label: 'Accomplishments', color: '#D4AF37' },
+  { id: 'accomplishments-news', label: 'Accomplishments NYT', color: '#B91C1C' },
   { id: 'baking', label: 'Baking', color: '#F4A460' },
   { id: 'events-missed', label: 'Missed', color: '#A0A0A0' },
   { id: 'events-attended', label: 'Attended', color: '#FF6B6B' },
