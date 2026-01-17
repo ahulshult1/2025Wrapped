@@ -1,7 +1,8 @@
 import PaperTexture from './components/PaperTexture';
 import ScrollProgressIndicator from './components/ScrollProgressIndicator';
 import HeroSection from './components/sections/HeroSection';
-import TravelSection from './components/sections/TravelSection';
+import PeruTravelSection from './components/sections/PeruTravelSection';
+import ColoradoUtahSection from './components/sections/ColoradoUtahSection';
 import AccomplishmentsSection from './components/sections/AccomplishmentsSection';
 import AccomplishmentsNewsSection from './components/sections/AccomplishmentsNewsSection';
 import BakingSection from './components/sections/BakingSection';
@@ -23,7 +24,8 @@ function App() {
       {/* All sections */}
       <main>
         <HeroSection />
-        <TravelSection />
+        <PeruTravelSection />
+        <ColoradoUtahSection />
         <AccomplishmentsSection />
         <AccomplishmentsNewsSection />
         <BakingSection />

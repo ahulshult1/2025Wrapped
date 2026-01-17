@@ -9,7 +9,8 @@ interface Section {
 
 const sections: Section[] = [
   { id: 'hero', label: 'Start', color: '#8B7355' },
-  { id: 'travel', label: 'Travel', color: '#6B9AC4' },
+  { id: 'peru-travel', label: 'Peru', color: '#6B9AC4' },
+  { id: 'colorado-utah', label: 'Colorado/Utah', color: '#D97757' },
   { id: 'accomplishments', label: 'Accomplishments', color: '#D4AF37' },
   { id: 'accomplishments-news', label: 'Accomplishments NYT', color: '#B91C1C' },
   { id: 'baking', label: 'Baking', color: '#F4A460' },
