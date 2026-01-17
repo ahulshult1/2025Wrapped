@@ -162,3 +162,115 @@ h1, h2, h3 {
 .scroll-snap-start {
   scroll-snap-align: start;
 }
+
+/* Events missed ticket styling */
+.ticket-wrapper {
+  width: min(320px, 90vw);
+  opacity: 0.7;
+  transform: rotate(var(--ticket-rotate, -4deg));
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  animation: ticket-sway 6s ease-in-out infinite;
+}
+
+.ticket-wrapper:hover {
+  opacity: 0.9;
+  transform: rotate(0deg);
+  animation: none;
+}
+
+.ticket-stub {
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  perspective: 1000px;
+  text-align: left;
+}
+
+.ticket-inner {
+  position: relative;
+  width: 100%;
+  min-height: 220px;
+  border-radius: 18px;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+
+.ticket-stub.is-flipped .ticket-inner {
+  transform: rotateY(180deg);
+}
+
+.ticket-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border: 1px dashed rgba(160, 160, 160, 0.4);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 1.25rem;
+  box-shadow: 0 12px 24px rgba(70, 70, 70, 0.15);
+  clip-path: polygon(
+    0 0,
+    92% 0,
+    96% 5%,
+    92% 10%,
+    96% 15%,
+    92% 20%,
+    96% 25%,
+    92% 30%,
+    96% 35%,
+    92% 40%,
+    96% 45%,
+    92% 50%,
+    96% 55%,
+    92% 60%,
+    96% 65%,
+    92% 70%,
+    96% 75%,
+    92% 80%,
+    96% 85%,
+    92% 90%,
+    96% 95%,
+    92% 100%,
+    0 100%
+  );
+}
+
+.ticket-back {
+  transform: rotateY(180deg);
+  background: rgba(245, 245, 245, 0.8);
+}
+
+.ticket-watermark {
+  position: absolute;
+  top: 38%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-12deg);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: rgba(160, 160, 160, 0.35);
+  pointer-events: none;
+}
+
+.ticket-barcode {
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(160, 160, 160, 0.8) 0,
+    rgba(160, 160, 160, 0.8) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  border-radius: 4px;
+}
+
+@keyframes ticket-sway {
+  0%,
+  100% {
+    transform: rotate(var(--ticket-rotate, -4deg)) translateY(0);
+  }
+  50% {
+    transform: rotate(calc(var(--ticket-rotate, -4deg) * -1)) translateY(6px);
+  }
+}

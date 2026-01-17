@@ -6,7 +6,7 @@ interface SectionProps {
   id: string;
   sectionNumber: string;
   title: string;
-  subtitle?: string;
+  subtitle?: ReactNode;
   accentColor: string;
   children: ReactNode;
   className?: string;
@@ -56,7 +56,14 @@ const Section = ({
 
         {/* Subtitle */}
         {subtitle && (
-          <p className="text-lg md:text-xl mb-12" style={{ fontFamily: 'var(--font-family-montserrat)', color: 'var(--color-warm-brown)', opacity: 0.8 }}>
+          <p
+            className="text-lg md:text-xl mb-12"
+            style={{
+              fontFamily: 'var(--font-family-montserrat)',
+              color: 'var(--color-warm-brown)',
+              opacity: 0.8,
+            }}
+          >
             {subtitle}
           </p>
         )}
