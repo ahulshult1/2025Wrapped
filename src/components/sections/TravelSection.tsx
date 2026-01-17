@@ -9,9 +9,11 @@ interface PostcardProps {
   rotation: number;
   delay: number;
   badge?: string;
+  photo?: string;
+  caption?: string;
 }
 
-const Postcard = ({ location, country, isHighlight = false, rotation, delay, badge }: PostcardProps) => {
+const Postcard = ({ location, country, isHighlight = false, rotation, delay, badge, photo, caption }: PostcardProps) => {
   const { ref, inView } = useInView({
     threshold: 0.2,
     triggerOnce: true,
@@ -66,24 +68,34 @@ const Postcard = ({ location, country, isHighlight = false, rotation, delay, bad
           </motion.div>
         )}
 
-        {/* Image placeholder */}
+        {/* Image */}
         <div
-          className={`w-full bg-gradient-to-br from-travel/20 to-travel/40 flex items-center justify-center ${
+          className={`w-full overflow-hidden ${
             isHighlight ? 'aspect-[16/9]' : 'aspect-[4/3]'
           }`}
         >
-          <p
-            className="handwritten text-2xl text-center px-4"
-            style={{ color: 'var(--color-travel)', opacity: 0.5 }}
-          >
-            Photo from<br />{location}
-          </p>
+          {photo ? (
+            <img
+              src={photo}
+              alt={location}
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <div className="w-full h-full bg-gradient-to-br from-travel/20 to-travel/40 flex items-center justify-center">
+              <p
+                className="handwritten text-2xl text-center px-4"
+                style={{ color: 'var(--color-travel)', opacity: 0.5 }}
+              >
+                Photo from<br />{location}
+              </p>
+            </div>
+          )}
         </div>
 
         {/* Postcard details */}
         <div className="absolute bottom-2 left-2 right-2 bg-white py-2 px-3">
           <div className="flex items-center justify-between">
-            <div>
+            <div className="flex-1">
               <h3
                 className="font-bold text-lg"
                 style={{
@@ -105,10 +117,22 @@ const Postcard = ({ location, country, isHighlight = false, rotation, delay, bad
                   {country}
                 </p>
               )}
+              {caption && (
+                <p
+                  className="text-xs mt-1 italic"
+                  style={{
+                    fontFamily: 'var(--font-family-montserrat)',
+                    color: 'var(--color-warm-brown)',
+                    opacity: 0.6
+                  }}
+                >
+                  {caption}
+                </p>
+              )}
             </div>
 
             {/* Decorative postage lines */}
-            <div className="flex flex-col gap-1">
+            <div className="flex flex-col gap-1 ml-2">
               <div className="w-12 h-px bg-travel/30" />
               <div className="w-12 h-px bg-travel/30" />
               <div className="w-12 h-px bg-travel/30" />
@@ -122,14 +146,169 @@ const Postcard = ({ location, country, isHighlight = false, rotation, delay, bad
 
 const TravelSection = () => {
   const destinations = [
-    { location: 'Machu Picchu', country: 'Peru', isHighlight: true, rotation: 0, badge: 'New World Wonder! ✨' },
-    { location: 'Michigan', rotation: -2 },
-    { location: 'New York', rotation: 3 },
-    { location: 'Oregon', rotation: -3 },
-    { location: 'Utah', rotation: 2 },
-    { location: 'Gatlinburg', country: 'Tennessee', rotation: -2 },
-    { location: 'Washington DC', rotation: 3 },
-    { location: 'New Orleans', country: 'Louisiana', rotation: -3 },
+    {
+      location: 'Machu Picchu',
+      country: 'Peru',
+      isHighlight: true,
+      rotation: 0,
+      badge: 'Wonder of the World! ✨',
+      photo: '/photos/accomplishments/macchu pichu.jpg',
+      caption: 'Standing at 7,972 feet, living the dream'
+    },
+    {
+      location: 'Huayna Picchu Summit',
+      country: 'Peru',
+      rotation: -2,
+      photo: '/photos/travel/Huayna Picchu.jpg',
+      caption: 'Conquered the steep climb, worth every step'
+    },
+    {
+      location: 'Huayna Picchu Views',
+      country: 'Peru',
+      rotation: 2,
+      photo: '/photos/travel/Huayna Picchu2.jpg',
+      caption: 'The view from the top was unreal'
+    },
+    {
+      location: 'Huayna Picchu Peak',
+      country: 'Peru',
+      rotation: -1,
+      photo: '/photos/travel/Huayna picchu3.jpg',
+      caption: 'Made it to the peak, feeling on top of the world'
+    },
+    {
+      location: 'Cusco Streets',
+      country: 'Peru',
+      rotation: 3,
+      photo: '/photos/travel/Cusco Peru.jpg',
+      caption: 'Ancient Incan capital vibes'
+    },
+    {
+      location: 'Cusco Culture',
+      country: 'Peru',
+      rotation: -2,
+      photo: '/photos/travel/Cusco Peru 2.jpg',
+      caption: 'Getting lost in the colorful streets'
+    },
+    {
+      location: 'Beautiful Inca Trail',
+      country: 'Peru',
+      rotation: -3,
+      photo: '/photos/travel/beautifl inca trail.jpg',
+      caption: 'Four days of epic hiking and views'
+    },
+    {
+      location: 'Inca Trail Day 3',
+      country: 'Peru',
+      rotation: 2,
+      photo: '/photos/travel/inca trail 3.jpg',
+      caption: 'Halfway there, spirits high'
+    },
+    {
+      location: 'Inca Trail Day 4',
+      country: 'Peru',
+      rotation: -1,
+      photo: '/photos/travel/inca trail 4.jpg',
+      caption: 'Almost at Machu Picchu!'
+    },
+    {
+      location: 'Inca Trail Vista',
+      country: 'Peru',
+      rotation: 3,
+      photo: '/photos/travel/incan trail 5.jpg',
+      caption: 'Mountain views for days'
+    },
+    {
+      location: 'Inca Trail Trek',
+      country: 'Peru',
+      rotation: -2,
+      photo: '/photos/travel/inca trail 7.jpg',
+      caption: 'One foot in front of the other'
+    },
+    {
+      location: 'Inca Trail Path',
+      country: 'Peru',
+      rotation: 1,
+      photo: '/photos/travel/inca trail 8.jpg',
+      caption: 'Following ancient footsteps'
+    },
+    {
+      location: 'Inca Trail Journey',
+      country: 'Peru',
+      rotation: -3,
+      photo: '/photos/travel/inca trail 9.jpg',
+      caption: 'Every step was worth it'
+    },
+    {
+      location: 'Inca Trail Final Day',
+      country: 'Peru',
+      rotation: 2,
+      photo: '/photos/travel/inca trail 10.jpg',
+      caption: 'The last stretch before the wonder'
+    },
+    {
+      location: 'Trail with Jacob',
+      country: 'Peru',
+      rotation: 3,
+      photo: '/photos/travel/incan trail me and jacob.jpg',
+      caption: 'Best hiking buddy on the best trail'
+    },
+    {
+      location: 'Amazon Jungle',
+      country: 'Peru',
+      rotation: -1,
+      photo: '/photos/travel/peru-landscape.jpg',
+      caption: 'Deep in the rainforest, wild and wonderful'
+    },
+    {
+      location: 'Peru Adventures',
+      country: 'Peru',
+      rotation: 2,
+      photo: '/photos/travel/peru1.jpg',
+      caption: 'Making memories in South America'
+    },
+    {
+      location: 'Peru with Jacob',
+      country: 'Peru',
+      rotation: -2,
+      photo: '/photos/travel/peru_me_jacob.jpeg',
+      caption: 'Two weeks of pure adventure'
+    },
+    {
+      location: 'Inca Ruins',
+      country: 'Peru',
+      rotation: 1,
+      photo: '/photos/travel/inca ruins.jpg',
+      caption: 'History everywhere you look'
+    },
+    {
+      location: 'Ancient Incan Site',
+      country: 'Peru',
+      rotation: -3,
+      photo: '/photos/travel/incan ruins.jpg',
+      caption: 'Walking through centuries of history'
+    },
+    {
+      location: 'Machu Picchu Overlook',
+      country: 'Peru',
+      rotation: 2,
+      photo: '/photos/travel/machu-picchu-main.jpg',
+      caption: 'The iconic view everyone dreams of'
+    },
+    {
+      location: 'Machu Picchu Morning',
+      country: 'Peru',
+      rotation: -1,
+      photo: '/photos/travel/machu-picchu-morning.jpg',
+      caption: 'Sunrise over the ruins, pure magic'
+    },
+    {
+      location: 'Machu Picchu Ruins',
+      country: 'Peru',
+      rotation: 3,
+      photo: '/photos/travel/machu-picchu-ruins.jpg',
+      caption: 'Exploring every corner of this wonder'
+    },
   ];
 
   return (
@@ -169,6 +348,8 @@ const TravelSection = () => {
             rotation={dest.rotation}
             delay={index * 0.1}
             badge={dest.badge}
+            photo={dest.photo}
+            caption={dest.caption}
           />
         ))}
       </div>
