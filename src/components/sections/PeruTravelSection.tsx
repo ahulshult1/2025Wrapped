@@ -145,7 +145,7 @@ const Postcard = ({ location, country, isHighlight = false, rotation, delay, bad
   );
 };
 
-const TravelSection = () => {
+const PeruTravelSection = () => {
   const destinations = [
     {
       location: 'Machu Picchu',
@@ -312,101 +312,12 @@ const TravelSection = () => {
     },
   ];
 
-  const coloradoUtahDestinations = [
-    {
-      location: 'Colorado Fall Colors',
-      state: 'Colorado',
-      rotation: -2,
-      photo: '/photos/travel/colorado fall.jpg',
-      caption: 'Autumn vibes in the Rockies'
-    },
-    {
-      location: 'Colorado Waterfall',
-      state: 'Colorado',
-      rotation: 2,
-      photo: '/photos/travel/colorado waterfall.jpg',
-      caption: 'Hidden gems around every corner'
-    },
-    {
-      location: 'Colorado Mountains',
-      state: 'Colorado',
-      rotation: -1,
-      photo: '/photos/travel/colorado.jpg',
-      caption: 'Starting the road trip right'
-    },
-    {
-      location: 'Dinosaur National Monument',
-      state: 'Colorado/Utah',
-      isHighlight: true,
-      rotation: 0,
-      badge: 'Prehistoric! 🦕',
-      photo: '/photos/travel/Dinosaur National Monument.jpg',
-      caption: 'Walking among ancient giants'
-    },
-    {
-      location: 'Dino Monument Views',
-      state: 'Utah',
-      rotation: 3,
-      photo: '/photos/travel/dino national monument 2.jpg',
-      caption: 'Incredible landscapes and fossils'
-    },
-    {
-      location: 'Utah Desert',
-      state: 'Utah',
-      rotation: -2,
-      photo: '/photos/travel/Utah.jpg',
-      caption: 'Red rocks and endless skies'
-    },
-    {
-      location: 'Utah Adventure 1',
-      state: 'Utah',
-      rotation: 1,
-      photo: '/photos/travel/utah 1.jpg',
-      caption: 'Exploring the desert landscapes'
-    },
-    {
-      location: 'Utah Adventure 2',
-      state: 'Utah',
-      rotation: -3,
-      photo: '/photos/travel/utah 2.jpg',
-      caption: 'Every view was breathtaking'
-    },
-    {
-      location: 'Utah Adventure 3',
-      state: 'Utah',
-      rotation: 2,
-      photo: '/photos/travel/utah 3.jpg',
-      caption: 'Park City bound'
-    },
-    {
-      location: 'Utah Adventure 4',
-      state: 'Utah',
-      rotation: -1,
-      photo: '/photos/travel/utah 4.jpg',
-      caption: 'Two weeks of pure exploration'
-    },
-    {
-      location: 'Utah Adventure 5',
-      state: 'Utah',
-      rotation: 3,
-      photo: '/photos/travel/utah 5.jpg',
-      caption: 'Living the mountain life'
-    },
-    {
-      location: 'Utah Adventure 6',
-      state: 'Utah',
-      rotation: -2,
-      photo: '/photos/travel/utah 6.jpg',
-      caption: 'Memories made in the high desert'
-    },
-  ];
-
   return (
     <Section
-      id="travel"
+      id="peru-travel"
       sectionNumber="01"
-      title="Miles & Memories"
-      subtitle="Where 2025 took me"
+      title="Peru Adventures"
+      subtitle="Two weeks in the land of the Incas"
       accentColor="#6B9AC4"
       className="relative justify-start"
     >
@@ -445,236 +356,6 @@ const TravelSection = () => {
         ))}
       </div>
 
-      {/* Colorado to Utah Road Trip Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0, duration: 0.8 }}
-        viewport={{ once: true }}
-        className="mt-24 mb-12"
-      >
-        <div className="text-center mb-8">
-          <motion.div
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="h-px bg-gradient-to-r from-transparent via-orange-400 to-transparent mb-6"
-          />
-          <h3
-            className="text-4xl md:text-5xl font-bold mb-2"
-            style={{
-              fontFamily: 'var(--font-family-playfair)',
-              background: 'linear-gradient(135deg, #D97757 0%, #C65D3B 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text'
-            }}
-          >
-            Colorado to Utah
-          </h3>
-          <p
-            className="text-lg"
-            style={{
-              fontFamily: 'var(--font-family-montserrat)',
-              color: '#8B5A3C'
-            }}
-          >
-            Two weeks of desert adventures & mountain views
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {coloradoUtahDestinations.map((dest, index) => (
-            <motion.div
-              key={dest.location}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className={`relative group ${dest.isHighlight ? 'md:col-span-2 lg:col-span-3' : ''}`}
-            >
-              <motion.div
-                whileHover={{
-                  y: -8,
-                  boxShadow: '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)'
-                }}
-                transition={{ duration: 0.3 }}
-                className={`bg-white p-2 shadow-lg cursor-pointer relative ${
-                  dest.isHighlight ? 'pb-16' : 'pb-12'
-                }`}
-                style={{
-                  transform: `rotate(${dest.rotation}deg)`,
-                }}
-              >
-                {/* Desert-themed stamp decoration */}
-                <div className="absolute top-4 right-4 w-8 h-8 border-2 border-dashed opacity-30 rounded-sm"
-                  style={{ borderColor: '#D97757' }}
-                />
-
-                {/* Badge for highlight */}
-                {dest.badge && (
-                  <motion.div
-                    initial={{ scale: 0, rotate: -45 }}
-                    whileInView={{ scale: 1, rotate: -12 }}
-                    transition={{ delay: index * 0.1 + 0.5, duration: 0.5, type: 'spring' }}
-                    viewport={{ once: true }}
-                    className="absolute -top-3 -right-3 z-10"
-                  >
-                    <div
-                      className="px-3 py-1 rounded-full text-xs font-bold text-white shadow-lg"
-                      style={{
-                        backgroundColor: '#C65D3B',
-                        fontFamily: 'var(--font-family-montserrat)',
-                        transform: 'rotate(-12deg)'
-                      }}
-                    >
-                      {dest.badge}
-                    </div>
-                  </motion.div>
-                )}
-
-                {/* Image */}
-                <div
-                  className={`w-full overflow-hidden ${
-                    dest.isHighlight ? 'aspect-[16/9]' : 'aspect-[4/3]'
-                  }`}
-                >
-                  <img
-                    src={dest.photo}
-                    alt={dest.location}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-
-                {/* Postcard details */}
-                <div className="absolute bottom-2 left-2 right-2 bg-white py-2 px-3">
-                  <div className="flex items-center justify-between">
-                    <div className="flex-1">
-                      <h3
-                        className="font-bold text-lg"
-                        style={{
-                          fontFamily: 'var(--font-family-playfair)',
-                          color: '#D97757'
-                        }}
-                      >
-                        {dest.location}
-                      </h3>
-                      {dest.state && (
-                        <p
-                          className="text-sm"
-                          style={{
-                            fontFamily: 'var(--font-family-montserrat)',
-                            color: '#8B5A3C',
-                            opacity: 0.7
-                          }}
-                        >
-                          {dest.state}
-                        </p>
-                      )}
-                      {dest.caption && (
-                        <p
-                          className="text-xs mt-1 italic"
-                          style={{
-                            fontFamily: 'var(--font-family-montserrat)',
-                            color: '#8B5A3C',
-                            opacity: 0.6
-                          }}
-                        >
-                          {dest.caption}
-                        </p>
-                      )}
-                    </div>
-
-                    {/* Decorative postage lines */}
-                    <div className="flex flex-col gap-1 ml-2">
-                      <div className="w-12 h-px" style={{ backgroundColor: '#D97757', opacity: 0.3 }} />
-                      <div className="w-12 h-px" style={{ backgroundColor: '#D97757', opacity: 0.3 }} />
-                      <div className="w-12 h-px" style={{ backgroundColor: '#D97757', opacity: 0.3 }} />
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </motion.div>
-          ))}
-        </div>
-      </motion.div>
-
-      {/* Travel stats footer */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.8, duration: 0.6 }}
-        viewport={{ once: true }}
-        className="mt-16 flex flex-wrap justify-center gap-8 text-center"
-      >
-        <div className="flex flex-col items-center">
-          <div
-            className="text-4xl font-bold mb-1"
-            style={{
-              fontFamily: 'var(--font-family-playfair)',
-              color: 'var(--color-travel)'
-            }}
-          >
-            8
-          </div>
-          <div
-            className="text-sm uppercase tracking-wide"
-            style={{
-              fontFamily: 'var(--font-family-montserrat)',
-              color: 'var(--color-warm-brown)',
-              opacity: 0.7
-            }}
-          >
-            Destinations
-          </div>
-        </div>
-
-        <div className="flex flex-col items-center">
-          <div
-            className="text-4xl font-bold mb-1"
-            style={{
-              fontFamily: 'var(--font-family-playfair)',
-              color: 'var(--color-travel)'
-            }}
-          >
-            6
-          </div>
-          <div
-            className="text-sm uppercase tracking-wide"
-            style={{
-              fontFamily: 'var(--font-family-montserrat)',
-              color: 'var(--color-warm-brown)',
-              opacity: 0.7
-            }}
-          >
-            States
-          </div>
-        </div>
-
-        <div className="flex flex-col items-center">
-          <div
-            className="text-4xl font-bold mb-1"
-            style={{
-              fontFamily: 'var(--font-family-playfair)',
-              color: 'var(--color-travel)'
-            }}
-          >
-            1
-          </div>
-          <div
-            className="text-sm uppercase tracking-wide"
-            style={{
-              fontFamily: 'var(--font-family-montserrat)',
-              color: 'var(--color-warm-brown)',
-              opacity: 0.7
-            }}
-          >
-            Wonder of the World
-          </div>
-        </div>
-      </motion.div>
-
       {/* Handwritten note */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -687,11 +368,11 @@ const TravelSection = () => {
           className="handwritten text-2xl md:text-3xl"
           style={{ color: 'var(--color-travel)' }}
         >
-          From ancient ruins to city lights, what a year of wandering! ✈️
+          From ancient ruins to mountain peaks, Peru stole my heart! 🇵🇪
         </p>
       </motion.div>
     </Section>
   );
 };
 
-export default TravelSection;
+export default PeruTravelSection;

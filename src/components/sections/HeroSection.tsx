@@ -37,7 +37,7 @@ const HeroSection = () => {
         <motion.path d="M 85 25 L 95 35 M 95 25 L 85 35" strokeWidth="1.5" />
       </motion.svg>
 
-      {/* Bottom Left Polaroid - Placeholder */}
+      {/* Bottom Left Polaroid - Hero Photo */}
       <motion.div
         initial={{ opacity: 0, y: 50, rotate: -12 }}
         animate={{ opacity: 1, y: 0, rotate: -8 }}
@@ -45,15 +45,12 @@ const HeroSection = () => {
         className="absolute bottom-12 left-8 hidden md:block"
       >
         <div className="polaroid w-40 lg:w-48">
-          <div
-            className="aspect-square rounded flex items-center justify-center"
-            style={{
-              background: 'linear-gradient(135deg, var(--color-soft-tan) 0%, rgba(139, 115, 85, 0.2) 100%)'
-            }}
-          >
-            <p className="handwritten text-xl" style={{ color: 'var(--color-warm-brown)', opacity: 0.5 }}>
-              Photo of me
-            </p>
+          <div className="aspect-square rounded overflow-hidden">
+            <img
+              src="/photos/hero/main-photo.jpg"
+              alt="Abigail ready for 2025"
+              className="w-full h-full object-cover"
+            />
           </div>
           <div className="polaroid-caption text-sm">
             Ready for 2025! ✨

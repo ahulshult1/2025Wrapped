@@ -6,7 +6,7 @@ interface MilestoneProps {
   date: string;
   icon: string;
   index: number;
-  style?: 'default' | 'news' | 'birthday' | 'adventure';
+  style?: 'default' | 'news' | 'birthday' | 'adventure' | 'award';
   footnote?: string;
 }
 
@@ -34,6 +34,7 @@ const Milestone = ({ title, date, icon, index, style = 'default', footnote }: Mi
         className={`
           max-w-4xl mx-auto bg-white rounded-lg shadow-xl overflow-hidden
           ${style === 'news' ? 'border-4 border-dashed' : ''}
+          ${style === 'award' ? 'border-4 border-double' : ''}
           ${style === 'birthday' ? 'border-4 border-double' : ''}
           ${style === 'adventure' ? 'border-4' : ''}
         `}
@@ -51,8 +52,17 @@ const Milestone = ({ title, date, icon, index, style = 'default', footnote }: Mi
               className="text-sm font-bold uppercase tracking-widest text-white"
               style={{ fontFamily: 'var(--font-family-montserrat)' }}
             >
-              🗞️ BREAKING NEWS
+              🗞️ Breaking News
             </span>
+          </div>
+        )}
+
+        {/* Awards ribbon */}
+        {style === 'award' && (
+          <div className="absolute top-4 right-4 flex items-center gap-2 rounded-full px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-white shadow-lg"
+            style={{ backgroundColor: 'var(--color-accomplishments)' }}
+          >
+            🏆 Award Spotlight
           </div>
         )}
 
@@ -94,6 +104,18 @@ const Milestone = ({ title, date, icon, index, style = 'default', footnote }: Mi
               >
                 {date}
               </div>
+              {style === 'news' && (
+                <div
+                  className="px-3 py-1 rounded-full text-[0.65rem] font-bold uppercase tracking-[0.3em]"
+                  style={{
+                    backgroundColor: 'rgba(212, 175, 55, 0.15)',
+                    color: 'var(--color-accomplishments)',
+                    fontFamily: 'var(--font-family-montserrat)'
+                  }}
+                >
+                  LIVE UPDATE
+                </div>
+              )}
             </div>
 
             {/* Right side - Content */}
@@ -132,7 +154,7 @@ const Milestone = ({ title, date, icon, index, style = 'default', footnote }: Mi
                   className="handwritten text-2xl"
                   style={{ color: 'var(--color-accomplishments)', opacity: 0.4 }}
                 >
-                  Photo goes here
+                  Headline photo goes here
                 </p>
               </div>
 
@@ -146,7 +168,7 @@ const Milestone = ({ title, date, icon, index, style = 'default', footnote }: Mi
                     opacity: 0.7
                   }}
                 >
-                  Caption: Add your story here...
+                  Caption: Breaking details to remember...
                 </p>
               )}
 
@@ -172,46 +194,60 @@ const Milestone = ({ title, date, icon, index, style = 'default', footnote }: Mi
 const AccomplishmentsSection = () => {
   const milestones = [
     {
-      title: 'Moved in With Jacob',
+      title: 'Moved in with Jacob',
       date: 'February 2025',
-      icon: '❤️',
-      style: 'default' as const,
-      footnote: 'A new chapter begins... 🏡'
+      icon: '🏡',
+      style: 'news' as const,
+      footnote: 'Home base upgraded. Cohabitation: complete.'
     },
     {
-      title: 'Got Promoted',
+      title: 'Got a Promotion',
       date: 'March 2025',
-      icon: '🚀',
-      style: 'news' as const,
-      footnote: 'Living the dream! (Or so I thought...)'
+      icon: '📈',
+      style: 'award' as const,
+      footnote: 'Recognized for the grind. Trophy vibes.'
+    },
+    {
+      title: 'Won First Volleyball Tournament (AA Coed)',
+      date: 'March 2025',
+      icon: '🏐',
+      style: 'award' as const,
+      footnote: 'First tournament, first win. Team Jacob + me.'
     },
     {
       title: 'Quit My Job',
       date: 'June 2025',
-      icon: '✨',
+      icon: '📝',
       style: 'news' as const,
-      footnote: 'Plot twist! Sometimes the best promotion is the exit door.'
+      footnote: 'Plot twist: the best promotion was the exit door.'
+    },
+    {
+      title: 'Hiked Machu Picchu',
+      date: 'June 2025',
+      icon: '⛰️',
+      style: 'award' as const,
+      footnote: 'New World Wonder: officially conquered.'
     },
     {
       title: 'Started New Job',
       date: 'July 2025',
       icon: '💼',
       style: 'news' as const,
-      footnote: 'New adventures, new challenges, new coffee machine! ☕'
+      footnote: 'New desk, new team, new routine.'
     },
     {
-      title: 'Conquered Machu Picchu',
-      date: '2025',
-      icon: '⛰️',
-      style: 'adventure' as const,
-      footnote: 'Trekked the Inca Trail to one of the Seven Wonders of the World!'
+      title: 'Broke My 5K PR',
+      date: 'November 2025',
+      icon: '🏃‍♀️',
+      style: 'award' as const,
+      footnote: 'Personal record and a victory lap.'
     },
     {
       title: 'Turned 30',
-      date: '2025',
+      date: 'December 2025',
       icon: '🎂',
       style: 'birthday' as const,
-      footnote: 'Thirty, flirty, and thriving! ✨'
+      footnote: 'Thirty, flirty, and headline-worthy.'
     },
   ];
 
@@ -219,8 +255,8 @@ const AccomplishmentsSection = () => {
     <Section
       id="accomplishments"
       sectionNumber="02"
-      title="Level Up: Age 30"
-      subtitle="Milestones that mattered"
+      title="Breaking News: 2025 Wins"
+      subtitle="Awards, headlines, and a few mic-drop moments"
       accentColor="#D4AF37"
       className="!min-h-0 py-32"
     >
@@ -252,7 +288,7 @@ const AccomplishmentsSection = () => {
               className="text-6xl md:text-7xl font-bold text-white"
               style={{ fontFamily: 'var(--font-family-playfair)' }}
             >
-              2025
+              Headlines + Honors
             </span>
           </div>
           <div
@@ -263,7 +299,7 @@ const AccomplishmentsSection = () => {
               opacity: 0.6
             }}
           >
-            A Year of Transformation & Growth
+            Awards Night Meets Breaking News
           </div>
         </motion.div>
 
